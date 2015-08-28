@@ -5,7 +5,7 @@ def int max = 10
 def buildVersion = null
 stage 'Build'
 node('docker') {
-    docker.withServer('tcp://127.0.0.1:2376') {
+    docker.withServer('tcp://docker.jenkins.local:2376') {
         docker.image('kmadel/maven:3.3.3-jdk-8').inside('-v /data:/data') {
             sh 'rm -rf *'
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], clean: true, doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/uaarkoti/mobile-deposit-api.git']]])
@@ -24,7 +24,7 @@ checkpoint 'Build Complete'
 stage 'Quality Analysis'
 node('docker') {
     unarchive mapping: ['pom.xml' : '.', 'src/' : '.']
-    docker.withServer('tcp://127.0.0.1:2376') {
+    docker.withServer('tcp://docker.jenkins.local:2376') {
         //test in paralell
         parallel(
             integrationTests: {
