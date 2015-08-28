@@ -7,7 +7,7 @@
     <version>0.0.19-SNAPSHOT</version>
     <name>Mobile Deposit API</name>
     <description>CloudBees example Mobile Deposit API</description>
-    <url>https://github.com/kmadel/mobile-deposit-api</url>
+    <url>https://github.com/uaarkoti/mobile-deposit-api</url>
 
     <parent>
         <!-- Your own application should inherit from spring-boot-starter-parent -->
@@ -25,17 +25,17 @@
 
     <developers>
         <developer>
-            <id>kmadel</id>
-            <name>Kurt Madel</name>
-            <email>kmadel@cloudbees.com</email>
-            <url>https://github.com/kmadel</url>
+            <id>uaarkoti</id>
+            <name>Udaypal Aarkoti</name>
+            <email>uaarkoti@cloudbees.com</email>
+            <url>https://github.com/uaarkoti</url>
         </developer>
     </developers>
 
     <scm>
-        <url>https://github.com/cloudbees/mobile-deposit-api</url>
-        <connection>scm:git:https://github.com/cloudbees/mobile-deposit-api.git</connection>
-        <developerConnection>scm:git:https://github.com/cloudbees/mobile-deposit-api.git</developerConnection>
+        <url>https://github.com/uaarkoti/mobile-deposit-api</url>
+        <connection>scm:git:https://github.com/uaarkoti/mobile-deposit-api.git</connection>
+        <developerConnection>scm:git:https://github.com/uaarkoti/mobile-deposit-api.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
