@@ -6,7 +6,7 @@ def buildVersion = null
 stage 'Build'
 node('docker') {
     docker.withServer('tcp://docker.jenkins.local:2376') {
-        docker.image('kmadel/maven:3.3.3-jdk-8').inside('-v /data:/data') {
+        docker.image('uday/maven:3.3.3-jdk-8').inside('-v /data:/data') {
             sh 'rm -rf *'
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], clean: true, doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/uaarkoti/mobile-deposit-api.git']]])
             sh 'git checkout master'
@@ -28,11 +28,11 @@ node('docker') {
         //test in paralell
         parallel(
             integrationTests: {
-              docker.image('kmadel/maven:3.3.3-jdk-8').inside('-v /data:/data') {
+              docker.image('uday/maven:3.3.3-jdk-8').inside('-v /data:/data') {
                   sh 'mvn -s /data/mvn/settings.xml -Dmaven.repo.local=/data/mvn/repo verify'
               }
             }, sonarAnalysis: {
-                docker.image('kmadel/maven:3.3.3-jdk-8').inside('-v /data:/data') {
+                docker.image('uday/maven:3.3.3-jdk-8').inside('-v /data:/data') {
                   sh 'mvn -s /data/mvn/settings.xml -Dmaven.repo.local=/data/mvn/repo -Dsonar.scm.disabled=True sonar:sonar'
                 }
             }, failFast: true
