@@ -1,6 +1,6 @@
 import java.util.Random
 def Random rand = new Random()
-def int max = 10
+//def int max = 10
 
 def buildVersion = null
 stage 'Build'
