@@ -43,10 +43,10 @@ node('docker') {
 checkpoint 'Quality Analysis Complete'
 node('docker') {
     //allows randome testing of above checkpoint
-    def failInt = rand.nextInt(max+1)
-    if(failInt>6){
-        error 'error to allow testing checkpoint'
-    } 
+    //def failInt = rand.nextInt(max+1)
+    //if(failInt>6){
+        //error 'error to allow testing checkpoint'
+    //} 
     
     unarchive mapping: ['pom.xml' : '.', 'target/' : '.']
 
