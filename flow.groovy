@@ -39,6 +39,7 @@ node('docker') {
             }, failFast: true
         )
     }
+    input "Does the QA look good?"
 }
 
 checkpoint 'Quality Analysis Complete'
